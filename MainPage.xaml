@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuestTodoMaui.MainPage"
+             Title="Quest To-Do">
+    <Grid Padding="16" RowDefinitions="Auto,Auto,Auto,*" RowSpacing="12">
+        <Label
+            Grid.Row="0"
+            Text="Это заглушка страницы."
+            Style="{StaticResource Headline}" />
+
+        <Label
+            Grid.Row="1"
+            Text="Основной UI сейчас в вкладках: Задачи / Скиллы / Кампания."
+            Style="{StaticResource Body}" />
+
+        <Button
+            Grid.Row="2"
+            Text="Открыть вкладку Задачи"
+            Clicked="OnOpenTasksClicked" />
+    </Grid>
+</ContentPage>

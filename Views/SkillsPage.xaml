@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuestTodoMaui.Views.SkillsPage"
+             Title="Скиллы">
+    <Grid Padding="12" RowDefinitions="Auto,*" RowSpacing="12">
+        <HorizontalStackLayout Grid.Row="0" Spacing="12">
+            <Button Text="Обновить" Command="{Binding InitializeCommand}" />
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+        </HorizontalStackLayout>
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Skills}">
+            <CollectionView.EmptyView>
+                <Label Text="Пока нет скиллов." />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10" RowDefinitions="Auto,Auto,Auto" RowSpacing="6">
+                        <Label Text="{Binding Name}" FontAttributes="Bold" />
+                        <Label Text="{Binding Level, StringFormat='Уровень: {0}'}" FontSize="12" Opacity="0.8" />
+                        <Label Text="{Binding CurrentXp, StringFormat='XP: {0}'}" FontSize="12" Opacity="0.8" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
+

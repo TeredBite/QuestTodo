@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuestTodoMaui.Views.TasksPage"
+             Title="Задачи">
+    <Grid Padding="12" RowDefinitions="Auto,*" RowSpacing="12">
+        <HorizontalStackLayout Grid.Row="0" Spacing="12">
+            <Button Text="Добавить" Command="{Binding AddTaskCommand}" />
+            <Button Text="Обновить" Command="{Binding InitializeCommand}" />
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+        </HorizontalStackLayout>
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Tasks}"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged">
+            <CollectionView.EmptyView>
+                <Label Text="Пока нет задач. Нажми “Добавить”." />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10" RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+                        <Label Grid.Row="0"
+                               Grid.Column="0"
+                               Text="{Binding Title}"
+                               FontAttributes="Bold" />
+                        <Label Grid.Row="1"
+                               Grid.Column="0"
+                               Text="{Binding Status}"
+                               FontSize="12"
+                               Opacity="0.7" />
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               Text="{Binding Difficulty}"
+                               FontSize="12"
+                               Opacity="0.7"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
+

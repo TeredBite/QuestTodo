@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuestTodoMaui.Views.CampaignPage"
+             Title="Кампания">
+    <ScrollView>
+        <VerticalStackLayout Padding="12" Spacing="10">
+            <HorizontalStackLayout Spacing="12">
+                <Button Text="Обновить" Command="{Binding InitializeCommand}" />
+                <Button Text="Сохранить" Command="{Binding SaveCommand}" />
+                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+            </HorizontalStackLayout>
+
+            <Label Text="Название" FontAttributes="Bold" />
+            <Entry Text="{Binding Name}" Placeholder="Например: Киберпанк — Большой план" />
+
+            <Label Text="Сеттинг" FontAttributes="Bold" />
+            <Editor Text="{Binding Setting}" AutoSize="TextChanges" HeightRequest="120" />
+
+            <Label Text="Цель" FontAttributes="Bold" />
+            <Editor Text="{Binding Goal}" AutoSize="TextChanges" HeightRequest="90" />
+
+            <Label Text="Тон (serious / humorous)" FontAttributes="Bold" />
+            <Entry Text="{Binding Tone}" Placeholder="serious" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+

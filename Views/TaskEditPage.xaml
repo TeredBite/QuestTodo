@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuestTodoMaui.Views.TaskEditPage"
+             Title="Дело / Квест">
+    <ScrollView>
+        <VerticalStackLayout Padding="12" Spacing="10">
+            <Label Text="{Binding Error}" TextColor="Tomato" IsVisible="{Binding Error, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+
+            <Label Text="Дело" FontAttributes="Bold" />
+            <Entry Text="{Binding Title}" Placeholder="Например: Купить хлеб" />
+
+            <Label Text="Заметка" FontAttributes="Bold" />
+            <Editor Text="{Binding Note}" AutoSize="TextChanges" HeightRequest="70" />
+
+            <Label Text="Скилл" FontAttributes="Bold" />
+            <Picker ItemsSource="{Binding Skills}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedSkill}" />
+
+            <Label Text="Сложность (1-3)" FontAttributes="Bold" />
+            <Stepper Minimum="1" Maximum="3" Increment="1" Value="{Binding Difficulty}" />
+            <Label Text="{Binding Difficulty, StringFormat='Текущая: {0}'}" FontSize="12" Opacity="0.8" />
+
+            <HorizontalStackLayout Spacing="12">
+                <Button Text="Сгенерировать квест" Command="{Binding GenerateQuestCommand}" />
+                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+            </HorizontalStackLayout>
+
+            <Frame Padding="12" BorderColor="#ddd">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="{Binding QuestTitle}" FontAttributes="Bold" />
+                    <Label Text="{Binding QuestText}" />
+                    <Label Text="{Binding QuestStakes}" FontSize="12" Opacity="0.8" />
+                    <Label Text="{Binding QuestReward}" FontSize="12" Opacity="0.8" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <HorizontalStackLayout Spacing="12">
+                <Button Text="Сохранить" Command="{Binding SaveCommand}" />
+                <Button Text="Выполнено (+XP)" Command="{Binding CompleteCommand}" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
