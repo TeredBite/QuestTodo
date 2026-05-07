@@ -13,7 +13,7 @@ public class OpenRouterQuestGeneratorService : IQuestGeneratorService
 
 	// ВАЖНО: подставь сюда свой ключ OpenRouter.
 	// Лучше вынести в защищённое хранилище или конфиг.
-	private const string ApiKey = "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";
+	private const string ApiKey = "";
 
 	private static readonly JsonSerializerOptions JsonOptions = new()
 	{
