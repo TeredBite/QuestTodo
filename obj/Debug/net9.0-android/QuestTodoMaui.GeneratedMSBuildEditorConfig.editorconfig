@@ -9,6 +9,8 @@ build_property.CsWinRTComponent =
 build_property.CsWinRTAotOptimizerEnabled = 
 build_property.CsWinRTAotWarningLevel = 
 build_property.TargetFramework = net9.0-android
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v9.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
 build_property.ProjectTypeGuids = 
@@ -17,61 +19,61 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = QuestTodoMaui
-build_property.ProjectDir = C:\Users\Thinkpad\source\repos\QuestTodoMaui\
+build_property.ProjectDir = c:\Users\Tered\CascadeProjects\QuestTodo\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Thinkpad/source/repos/QuestTodoMaui/App.xaml]
+[c:/Users/Tered/CascadeProjects/QuestTodo/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Users/Thinkpad/source/repos/QuestTodoMaui/AppShell.xaml]
+[c:/Users/Tered/CascadeProjects/QuestTodo/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Users/Thinkpad/source/repos/QuestTodoMaui/MainPage.xaml]
+[c:/Users/Tered/CascadeProjects/QuestTodo/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/Thinkpad/source/repos/QuestTodoMaui/Resources/Styles/Colors.xaml]
+[c:/Users/Tered/CascadeProjects/QuestTodo/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Users/Thinkpad/source/repos/QuestTodoMaui/Resources/Styles/Styles.xaml]
+[c:/Users/Tered/CascadeProjects/QuestTodo/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[C:/Users/Thinkpad/source/repos/QuestTodoMaui/Views/CampaignPage.xaml]
+[c:/Users/Tered/CascadeProjects/QuestTodo/Views/CampaignPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.CampaignPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\CampaignPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CampaignPage.xaml
 
-[C:/Users/Thinkpad/source/repos/QuestTodoMaui/Views/SkillsPage.xaml]
+[c:/Users/Tered/CascadeProjects/QuestTodo/Views/SkillsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.SkillsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\SkillsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\SkillsPage.xaml
 
-[C:/Users/Thinkpad/source/repos/QuestTodoMaui/Views/TaskEditPage.xaml]
+[c:/Users/Tered/CascadeProjects/QuestTodo/Views/TaskEditPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.TaskEditPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\TaskEditPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\TaskEditPage.xaml
 
-[C:/Users/Thinkpad/source/repos/QuestTodoMaui/Views/TasksPage.xaml]
+[c:/Users/Tered/CascadeProjects/QuestTodo/Views/TasksPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.TasksPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\TasksPage.xaml

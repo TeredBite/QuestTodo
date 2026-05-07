@@ -3,20 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuestTodoMaui.MainPage"
              Title="Quest To-Do">
-    <Grid Padding="16" RowDefinitions="Auto,Auto,Auto,*" RowSpacing="12">
-        <Label
-            Grid.Row="0"
-            Text="Это заглушка страницы."
-            Style="{StaticResource Headline}" />
+    <Grid Padding="20" RowDefinitions="Auto,Auto,Auto,*" RowSpacing="16">
+        <VerticalStackLayout Grid.Row="0" Spacing="12" HorizontalOptions="Center">
+            <Label Text="🎮" FontSize="64" HorizontalOptions="Center" />
+            <Label Text="Quest To-Do" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#333" />
+            <Label Text="Преврати свои дела в эпичные квесты" FontSize="16" HorizontalOptions="Center" TextColor="#666" />
+        </VerticalStackLayout>
 
-        <Label
-            Grid.Row="1"
-            Text="Основной UI сейчас в вкладках: Задачи / Скиллы / Кампания."
-            Style="{StaticResource Body}" />
+        <Frame Grid.Row="1" BackgroundColor="#E8F4FD" Padding="20" CornerRadius="12">
+            <VerticalStackLayout Spacing="8">
+                <Label Text="💡 Совет" FontSize="16" FontAttributes="Bold" TextColor="#007AFF" />
+                <Label Text="Используй вкладки внизу экрана для навигации:" FontSize="14" TextColor="#333" />
+                <Label Text="• Мои дела — список задач" FontSize="13" TextColor="#666" />
+                <Label Text="• Мои навыки — прокачка скиллов" FontSize="13" TextColor="#666" />
+                <Label Text="• Настройки кампании — мир и настроение" FontSize="13" TextColor="#666" />
+            </VerticalStackLayout>
+        </Frame>
 
         <Button
             Grid.Row="2"
-            Text="Открыть вкладку Задачи"
-            Clicked="OnOpenTasksClicked" />
+            Text="🚀 Перейти к задачам"
+            Clicked="OnOpenTasksClicked"
+            BackgroundColor="#007AFF"
+            TextColor="White"
+            CornerRadius="8"
+            Padding="20,12"
+            FontSize="16"
+            HorizontalOptions="Center" />
     </Grid>
 </ContentPage>

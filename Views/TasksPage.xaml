@@ -2,40 +2,68 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuestTodoMaui.Views.TasksPage"
-             Title="Задачи">
-    <Grid Padding="12" RowDefinitions="Auto,*" RowSpacing="12">
-        <HorizontalStackLayout Grid.Row="0" Spacing="12">
-            <Button Text="Добавить" Command="{Binding AddTaskCommand}" />
-            <Button Text="Обновить" Command="{Binding InitializeCommand}" />
-            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
-        </HorizontalStackLayout>
+             Title="Мои дела">
+    <Grid Padding="20" RowDefinitions="Auto,*" RowSpacing="16">
+        <Frame Grid.Row="0" BackgroundColor="#007AFF" Padding="16" CornerRadius="12">
+            <HorizontalStackLayout Spacing="12">
+                <Button Text="➕ Новое дело" Command="{Binding AddTaskCommand}" 
+                        BackgroundColor="White" TextColor="#007AFF" 
+                        CornerRadius="8" Padding="16,8" FontSize="14" />
+                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" 
+                                  Color="White" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </Frame>
 
         <CollectionView Grid.Row="1"
                         ItemsSource="{Binding Tasks}"
                         SelectionMode="Single"
                         SelectionChanged="OnSelectionChanged">
             <CollectionView.EmptyView>
-                <Label Text="Пока нет задач. Нажми “Добавить”." />
+                <VerticalStackLayout Spacing="16" Padding="20" HorizontalOptions="Center">
+                    <Label Text="📭" FontSize="48" HorizontalOptions="Center" />
+                    <Label Text="Пока нет задач" FontSize="18" FontAttributes="Bold" 
+                           HorizontalOptions="Center" TextColor="#666" />
+                    <Label Text="Нажми «Новое дело», чтобы добавить первую задачу" 
+                           FontSize="14" HorizontalOptions="Center" TextColor="#999" />
+                </VerticalStackLayout>
             </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10" RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
-                        <Label Grid.Row="0"
-                               Grid.Column="0"
-                               Text="{Binding Title}"
-                               FontAttributes="Bold" />
-                        <Label Grid.Row="1"
-                               Grid.Column="0"
-                               Text="{Binding Status}"
-                               FontSize="12"
-                               Opacity="0.7" />
-                        <Label Grid.Row="0"
-                               Grid.Column="1"
-                               Text="{Binding Difficulty}"
-                               FontSize="12"
-                               Opacity="0.7"
-                               VerticalOptions="Center" />
-                    </Grid>
+                    <Frame Padding="16" Margin="0,8" CornerRadius="12" BackgroundColor="White">
+                        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto,Auto" RowSpacing="8" ColumnSpacing="8">
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="{Binding Title}"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="#333" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="0"
+                                   Text="{Binding Status}"
+                                   FontSize="13"
+                                   TextColor="#666" />
+                            <Frame Grid.Row="0"
+                                   Grid.RowSpan="2"
+                                   Grid.Column="1"
+                                   BackgroundColor="#E8F4FD"
+                                   Padding="8,4"
+                                   CornerRadius="6"
+                                   VerticalOptions="Center">
+                                <Label Text="{Binding Difficulty, StringFormat='⭐ {0}'}"
+                                       FontSize="12" FontAttributes="Bold" TextColor="#007AFF" />
+                            </Frame>
+                            <Button Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    Grid.Column="2"
+                                    Text="🗑️"
+                                    FontSize="14"
+                                    BackgroundColor="Transparent"
+                                    TextColor="#FF3B30"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteTaskCommand}"
+                                    CommandParameter="{Binding .}"
+                                    VerticalOptions="Center" />
+                        </Grid>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

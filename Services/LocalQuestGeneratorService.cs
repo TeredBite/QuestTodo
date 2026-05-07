@@ -7,17 +7,17 @@ public class LocalQuestGeneratorService : IQuestGeneratorService
 	public Task<QuestResult> GenerateQuestAsync(
 		Campaign campaign,
 		TodoTask task,
-		Skill skill,
+		IReadOnlyList<Skill> skills,
 		CancellationToken ct = default)
 	{
 		// Черновик: простая "сюжетная" склейка без внешнего API.
 		// Позже можно заменить на OpenRouter реализацию с тем же интерфейсом.
 		var tone = (campaign.Tone ?? "serious").Trim().ToLowerInvariant();
 
-		var title = $"{skill.Name}: {task.Title}";
+		var title = $"Задание: {task.Title}";
 		var quest = tone switch
 		{
-			"humorous" => $"Твой герой берёт миссию: «{task.Title}». Даже в мире, где всё решают корпораты, {skill.Name.ToLowerInvariant()} — это сила.",
+			"humorous" => $"Твой герой берёт миссию: «{task.Title}». Даже в этом мире это важно.",
 			_ => $"Задание: «{task.Title}». Это напрямую связано с твоей целью: {campaign.Goal}",
 		};
 
@@ -29,17 +29,20 @@ public class LocalQuestGeneratorService : IQuestGeneratorService
 
 		var reward = tone switch
 		{
-			"humorous" => $"Награда: +репутация в ветке «{skill.Name}», и немного уважения от твоего внутреннего NPC.",
-			_ => $"Награда: укрепление навыка «{skill.Name}» и ещё один шаг к большой цели.",
+			"humorous" => "Награда: +репутация и немного уважения от твоего внутреннего NPC.",
+			_ => "Награда: укрепление навыков и ещё один шаг к большой цели.",
 		};
 
 		var tags = new[]
 		{
-			skill.Name,
+			"general",
 			task.Difficulty switch { 1 => "easy", 2 => "medium", _ => "hard" }
 		};
 
-		return Task.FromResult(new QuestResult(title, quest, stakes, reward, tags));
+		var skillNames = skills.Any() ? new[] { skills[0].Name } : new[] { "General" };
+		var experience = task.Difficulty switch { 1 => 20, 2 => 45, _ => 80 };
+
+		return Task.FromResult(new QuestResult(title, quest, stakes, reward, tags, task.Difficulty, skillNames, experience));
 	}
 }
 

@@ -9,11 +9,11 @@ namespace QuestTodoMaui.Services;
 public class OpenRouterQuestGeneratorService : IQuestGeneratorService
 {
 	private const string Endpoint = "https://openrouter.ai/api/v1/chat/completions";
-	private const string Model = "openrouter/elephant-alpha";
+	private const string Model = "openai/gpt-oss-120b:free";
 
 	// ВАЖНО: подставь сюда свой ключ OpenRouter.
 	// Лучше вынести в защищённое хранилище или конфиг.
-	private const string ApiKey = "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";
+	private const string ApiKey = "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";
 
 	private static readonly JsonSerializerOptions JsonOptions = new()
 	{
@@ -33,7 +33,7 @@ public class OpenRouterQuestGeneratorService : IQuestGeneratorService
 	public async Task<QuestResult> GenerateQuestAsync(
 		Campaign campaign,
 		TodoTask task,
-		Skill skill,
+		IReadOnlyList<Skill> skills,
 		CancellationToken ct = default)
 	{
 		if (string.IsNullOrWhiteSpace(ApiKey) || ApiKey.Contains("PUT_YOUR_OPENROUTER_API_KEY_HERE", StringComparison.Ordinal))
@@ -44,32 +44,32 @@ public class OpenRouterQuestGeneratorService : IQuestGeneratorService
 		var systemPrompt =
 			"Ты сценарист, который превращает реальные дела пользователя в квесты в вымышленном мире. " +
 			"Всегда возвращай ОДИН JSON-объект без пояснений и форматирования кода. " +
-			"Структура: {\"title\": string, \"quest\": string, \"stakes\": string, \"reward\": string, \"tags\": string[]}. " +
+			"Структура: {\"title\": string, \"quest\": string, \"stakes\": string, \"reward\": string, \"tags\": string[], \"difficulty\": int, \"skills\": string[], \"experience\": int}. " +
 			"Не добавляй разделители ``` и не пиши ничего кроме JSON.";
 
 		var worldDescription = campaign.Setting;
 		var goalDescription = campaign.Goal;
 		var tone = (campaign.Tone ?? "serious").Trim().ToLowerInvariant();
-		var difficulty = task.Difficulty switch
-		{
-			1 => "легкое",
-			2 => "среднее",
-			_ => "сложное",
-		};
+
+		var availableSkills = skills.Any() ? string.Join(", ", skills.Select(s => s.Name)) : "General";
 
 		var userPrompt =
 			"Сеттинг мира:\n" + worldDescription + "\n\n" +
 			"Цель героя:\n" + goalDescription + "\n\n" +
+			"Доступные навыки:\n" + availableSkills + "\n\n" +
 			"Текущее дело:\n" +
 			$"- Название: \"{task.Title}\"\n" +
-			$"- Категория / скилл: \"{skill.Name}\"\n" +
-			$"- Сложность: {difficulty}\n\n" +
+			(task.Note != null ? $"- Заметки: \"{task.Note}\"\n" : "") +
+			"\n" +
 			"Требования к ответу:\n" +
 			"- title: короткий заголовок квеста (1 строка).\n" +
 			"- quest: 1–3 предложения, объясняющие, зачем это задание важно в этом мире.\n" +
 			"- stakes: мягко опиши, что будет, если отложить (без прямого насилия, реального вреда и инструкций).\n" +
-			"- reward: что герой \"получит\" в терминах лора (репутация, влияние и т.п., можно сослаться на скилл).\n" +
-			"- tags: массив тегов, включи название скилла и сложность (easy/medium/hard).\n\n" +
+			"- reward: что герой \"получит\" в терминах лора (репутация, влияние и т.п.).\n" +
+			"- tags: массив тегов, отражающих суть задания.\n" +
+			"- difficulty: число от 1 до 3 (1=легкое, 2=среднее, 3=сложное) — определи сам на основе описания дела.\n" +
+			"- skills: массив строк с названиями скиллов из списка доступных навыков, которые прокачиваются этим заданием — выбери 1-2 наиболее подходящих навыка из списка.\n" +
+			"- experience: число от 10 до 100 — сколько опыта дадут за выполнение, соотнеси со сложностью (легкое=10-30, среднее=30-60, сложное=60-100).\n\n" +
 			"Пиши на русском.";
 
 		var request = new ChatCompletionRequest
