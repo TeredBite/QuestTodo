@@ -2,24 +2,52 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuestTodoMaui.Views.SkillsPage"
-             Title="Скиллы">
-    <Grid Padding="12" RowDefinitions="Auto,*" RowSpacing="12">
-        <HorizontalStackLayout Grid.Row="0" Spacing="12">
-            <Button Text="Обновить" Command="{Binding InitializeCommand}" />
-            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
-        </HorizontalStackLayout>
+             Title="Мои навыки">
+    <Grid Padding="20" RowDefinitions="Auto,*" RowSpacing="16">
+        <Frame Grid.Row="0" BackgroundColor="#9C27B0" Padding="16" CornerRadius="12">
+            <HorizontalStackLayout Spacing="12">
+                <Label Text="🎯 Навыки" FontSize="20" FontAttributes="Bold" TextColor="White" VerticalOptions="Center" />
+                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" 
+                                  Color="White" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </Frame>
 
         <CollectionView Grid.Row="1" ItemsSource="{Binding Skills}">
             <CollectionView.EmptyView>
-                <Label Text="Пока нет скиллов." />
+                <VerticalStackLayout Spacing="16" Padding="20" HorizontalOptions="Center">
+                    <Label Text="🎭" FontSize="48" HorizontalOptions="Center" />
+                    <Label Text="Пока нет навыков" FontSize="18" FontAttributes="Bold" 
+                           HorizontalOptions="Center" TextColor="#666" />
+                    <Label Text="Навыки будут автоматически добавляться при выполнении квестов" 
+                           FontSize="14" HorizontalOptions="Center" TextColor="#999" />
+                </VerticalStackLayout>
             </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10" RowDefinitions="Auto,Auto,Auto" RowSpacing="6">
-                        <Label Text="{Binding Name}" FontAttributes="Bold" />
-                        <Label Text="{Binding Level, StringFormat='Уровень: {0}'}" FontSize="12" Opacity="0.8" />
-                        <Label Text="{Binding CurrentXp, StringFormat='XP: {0}'}" FontSize="12" Opacity="0.8" />
-                    </Grid>
+                    <Frame Padding="16" Margin="0,8" CornerRadius="12" BackgroundColor="White">
+                        <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="8">
+                            <Label Grid.Row="0"
+                                   Text="{Binding Name}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="#333" />
+                            <Grid Grid.Row="1" ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                                <Frame BackgroundColor="#F3E5F5" Padding="8,4" CornerRadius="6">
+                                    <Label Text="{Binding Level, StringFormat='🎓 Ур. {0}'}" 
+                                           FontSize="12" FontAttributes="Bold" TextColor="#9C27B0" />
+                                </Frame>
+                                <ProgressBar Grid.Column="1" 
+                                           Progress="{Binding Progress}" 
+                                           VerticalOptions="Center"
+                                           BackgroundColor="#E1E1E1"
+                                           ProgressColor="#9C27B0" />
+                            </Grid>
+                            <Label Grid.Row="2"
+                                   Text="{Binding CurrentXp, StringFormat='📊 Опыт: {0} XP'}"
+                                   FontSize="13"
+                                   TextColor="#666" />
+                        </Grid>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

@@ -7,7 +7,7 @@ public interface IQuestGeneratorService
 	Task<QuestResult> GenerateQuestAsync(
 		Campaign campaign,
 		TodoTask task,
-		Skill skill,
+		IReadOnlyList<Skill> skills,
 		CancellationToken ct = default);
 }
 

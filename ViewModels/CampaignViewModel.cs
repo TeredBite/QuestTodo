@@ -21,6 +21,31 @@ public partial class CampaignViewModel : BaseViewModel
 	[ObservableProperty]
 	private string tone = "serious";
 
+	[ObservableProperty]
+	private ToneOption? selectedTone;
+
+	public string SelectedToneDescription => SelectedTone?.Display ?? "Выберите настроение";
+
+	public List<ToneOption> AvailableTones { get; } = new()
+	{
+		new ToneOption("serious", "Серьёзное — эпичные и драматичные квесты"),
+		new ToneOption("humorous", "Юмористическое — лёгкие и забавные приключения"),
+		new ToneOption("dark", "Тёмное — мрачная фэнтези, опасности и жертвы"),
+		new ToneOption("epic", "Эпическое — судьбоносные решения, величие и героизм"),
+		new ToneOption("casual", "Повседневное — уютные, спокойные истории"),
+		new ToneOption("noir", "Нуар — интриги, предательства, моральные дилеммы"),
+		new ToneOption("horror", "Хоррор — ужасы, выживание, паранормальное"),
+		new ToneOption("romantic", "Романтическое — чувства, отношения, личный рост"),
+	};
+
+	partial void OnSelectedToneChanged(ToneOption? value)
+	{
+		if (value != null)
+		{
+			Tone = value.Value;
+		}
+	}
+
 	public CampaignViewModel(AppState state)
 	{
 		_state = state;
@@ -38,6 +63,7 @@ public partial class CampaignViewModel : BaseViewModel
 			Setting = _state.Campaign.Setting;
 			Goal = _state.Campaign.Goal;
 			Tone = _state.Campaign.Tone;
+			SelectedTone = AvailableTones.FirstOrDefault(t => t.Value == Tone);
 		}
 		finally
 		{
@@ -62,4 +88,6 @@ public partial class CampaignViewModel : BaseViewModel
 		await _state.SaveAsync();
 	}
 }
+
+public record ToneOption(string Value, string Display);
 

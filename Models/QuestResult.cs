@@ -5,6 +5,9 @@ public record QuestResult(
 	string Quest,
 	string Stakes,
 	string Reward,
-	string[] Tags
+	string[] Tags,
+	int Difficulty,
+	string[] Skills,
+	int Experience
 );
 

@@ -47,5 +47,24 @@ public partial class TasksViewModel : BaseViewModel
 
 		await Shell.Current.GoToAsync($"task/edit?taskId={task.Id}");
 	}
+
+	[RelayCommand]
+	private async Task DeleteTaskAsync(TodoTask? task)
+	{
+		if (task is null)
+			return;
+
+		bool confirm = await Shell.Current.DisplayAlert(
+			"Удалить дело?",
+			$"Удалить \"{task.Title}\"? Это действие нельзя отменить.",
+			"Удалить",
+			"Отмена");
+
+		if (!confirm)
+			return;
+
+		Tasks.Remove(task);
+		await _state.SaveAsync();
+	}
 }
 
