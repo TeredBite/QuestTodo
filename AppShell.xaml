@@ -31,6 +31,11 @@
             Title="Профиль"
             ContentTemplate="{DataTemplate views:ProfilePage}"
             Route="profile" />
+
+        <ShellContent
+            Title="Данные"
+            ContentTemplate="{DataTemplate views:DataPage}"
+            Route="data" />
     </TabBar>
 
 </Shell>
