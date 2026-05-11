@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuestTodoMaui.Views.ReportsPage"
+             Title="Отчёты">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+            <Label Text="{Binding Error}" TextColor="#FF3B30"
+                   IsVisible="{Binding Error, Converter={StaticResource StringNotNullOrEmptyConverter}}"
+                   FontSize="14" />
+
+            <Frame BackgroundColor="#f5f5f5" Padding="16" CornerRadius="10">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Выберите тип отчёта" FontSize="18" FontAttributes="Bold" TextColor="#333" />
+
+                    <Picker ItemsSource="{Binding ReportTypes}"
+                            SelectedItem="{Binding SelectedReportType}"
+                            Title="Тип отчёта"
+                            BackgroundColor="White" TextColor="#333" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Single event report -->
+            <Frame BackgroundColor="#E8F4FD" Padding="16" CornerRadius="10"
+                   IsVisible="{Binding IsSingleEventReport}">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Выберите выполненное дело" FontSize="16" FontAttributes="Bold" TextColor="#7F49B4" />
+                    <Picker ItemsSource="{Binding CompletedTasks}"
+                            ItemDisplayBinding="{Binding Title}"
+                            SelectedItem="{Binding SelectedTask}"
+                            Title="Дело"
+                            BackgroundColor="White" TextColor="#333" />
+                    <Button Text="Сформировать отчёт" Command="{Binding GenerateSingleReportCommand}"
+                            BackgroundColor="#7F49B4" TextColor="White"
+                            CornerRadius="8" Padding="16,10" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Report output -->
+            <Frame BackgroundColor="#f5f5f5" Padding="16" CornerRadius="10"
+                   IsVisible="{Binding ReportContent, Converter={StaticResource StringNotNullOrEmptyConverter}}">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="📋 Результат" FontSize="16" FontAttributes="Bold" TextColor="#333" />
+                    <Label Text="{Binding ReportContent}"
+                           FontSize="13" TextColor="#333"
+                           LineBreakMode="WordWrap" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Экспортировать в JSON" Command="{Binding ExportJsonCommand}"
+                    BackgroundColor="#34C759" TextColor="White"
+                    CornerRadius="8" Padding="16,10" FontSize="16"
+                    IsVisible="{Binding ReportContent, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

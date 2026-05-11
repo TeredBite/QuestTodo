@@ -12,6 +12,7 @@ public partial class TaskEditViewModel : BaseViewModel
 	private readonly AppState _state;
 	private readonly ISkillService _skillService;
 	private readonly IQuestGeneratorService _questGenerator;
+	private readonly IErrorHandler _errorHandler;
 	private readonly ILogger<TaskEditViewModel>? _logger;
 
 	private TodoTask? _model;
@@ -41,11 +42,13 @@ public partial class TaskEditViewModel : BaseViewModel
 		AppState state,
 		ISkillService skillService,
 		IQuestGeneratorService questGenerator,
+		IErrorHandler errorHandler,
 		ILogger<TaskEditViewModel>? logger = null)
 	{
 		_state = state;
 		_skillService = skillService;
 		_questGenerator = questGenerator;
+		_errorHandler = errorHandler;
 		_logger = logger;
 	}
 
@@ -105,7 +108,7 @@ public partial class TaskEditViewModel : BaseViewModel
 		var titleTrimmed = Title?.Trim() ?? "";
 		if (string.IsNullOrWhiteSpace(titleTrimmed))
 		{
-			Error = "Название дела не может быть пустым.";
+			Error = _errorHandler.GetUserFriendlyMessage("empty_title");
 			return;
 		}
 
@@ -139,10 +142,12 @@ public partial class TaskEditViewModel : BaseViewModel
 
 		if (skillId == Guid.Empty)
 		{
-			Error = "Нет доступных скиллов. Сначала создайте скилл в кампании.";
+			Error = _errorHandler.GetUserFriendlyMessage("no_skills");
 			return;
 		}
 
+		try
+		{
 		if (_model is null)
 		{
 			// Serialize current quest if it exists
@@ -188,6 +193,11 @@ public partial class TaskEditViewModel : BaseViewModel
 		await _state.SaveAsync();
 		IsSaved = true;
 		await Shell.Current.GoToAsync("..");
+		}
+		catch (Exception ex)
+		{
+			_errorHandler.HandleException(ex, "TaskEditViewModel.Save");
+		}
 	}
 
 	[RelayCommand]
@@ -244,6 +254,11 @@ public partial class TaskEditViewModel : BaseViewModel
 				await _state.SaveAsync();
 			}
 		}
+		catch (Exception ex)
+		{
+			Error = _errorHandler.GetUserFriendlyMessage("network_error");
+			_errorHandler.HandleException(ex, "TaskEditViewModel.GenerateQuest");
+		}
 		finally
 		{
 			IsBusy = false;
@@ -253,6 +268,8 @@ public partial class TaskEditViewModel : BaseViewModel
 	[RelayCommand]
 	private async Task CompleteAsync()
 	{
+		try
+		{
 		if (_model is null)
 		{
 			Error = "Сначала сохрани задачу.";
@@ -346,11 +363,18 @@ public partial class TaskEditViewModel : BaseViewModel
 
 		await _state.SaveAsync();
 		await Shell.Current.GoToAsync("..");
+		}
+		catch (Exception ex)
+		{
+			_errorHandler.HandleException(ex, "TaskEditViewModel.Complete");
+		}
 	}
 
 	[RelayCommand]
 	private async Task DeleteAsync()
 	{
+		try
+		{
 		if (_model is null)
 		{
 			await Shell.Current.GoToAsync("..");
@@ -369,6 +393,11 @@ public partial class TaskEditViewModel : BaseViewModel
 		_state.Tasks.Remove(_model);
 		await _state.SaveAsync();
 		await Shell.Current.GoToAsync("..");
+		}
+		catch (Exception ex)
+		{
+			_errorHandler.HandleException(ex, "TaskEditViewModel.Delete");
+		}
 	}
 
 	private void ApplyQuest(string? questJson)

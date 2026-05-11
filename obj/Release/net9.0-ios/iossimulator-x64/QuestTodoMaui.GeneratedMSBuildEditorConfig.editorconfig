@@ -61,6 +61,24 @@ build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.Campai
 build_metadata.AdditionalFiles.TargetPath = Views\CampaignPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CampaignPage.xaml
 
+[C:/Users/Tered/CascadeProjects/QuestTodo/Views/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\LoginPage.xaml
+
+[C:/Users/Tered/CascadeProjects/QuestTodo/Views/ProfilePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.ProfilePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ProfilePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ProfilePage.xaml
+
+[C:/Users/Tered/CascadeProjects/QuestTodo/Views/ReportsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.ReportsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ReportsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ReportsPage.xaml
+
 [C:/Users/Tered/CascadeProjects/QuestTodo/Views/SkillsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.SkillsPage.xaml

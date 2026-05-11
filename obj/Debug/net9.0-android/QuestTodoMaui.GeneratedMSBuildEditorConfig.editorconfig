@@ -19,61 +19,79 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = QuestTodoMaui
-build_property.ProjectDir = c:\Users\Tered\CascadeProjects\QuestTodo\
+build_property.ProjectDir = C:\Users\Tered\CascadeProjects\QuestTodo\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[c:/Users/Tered/CascadeProjects/QuestTodo/App.xaml]
+[C:/Users/Tered/CascadeProjects/QuestTodo/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[c:/Users/Tered/CascadeProjects/QuestTodo/AppShell.xaml]
+[C:/Users/Tered/CascadeProjects/QuestTodo/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[c:/Users/Tered/CascadeProjects/QuestTodo/MainPage.xaml]
+[C:/Users/Tered/CascadeProjects/QuestTodo/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[c:/Users/Tered/CascadeProjects/QuestTodo/Resources/Styles/Colors.xaml]
+[C:/Users/Tered/CascadeProjects/QuestTodo/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[c:/Users/Tered/CascadeProjects/QuestTodo/Resources/Styles/Styles.xaml]
+[C:/Users/Tered/CascadeProjects/QuestTodo/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[c:/Users/Tered/CascadeProjects/QuestTodo/Views/CampaignPage.xaml]
+[C:/Users/Tered/CascadeProjects/QuestTodo/Views/CampaignPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.CampaignPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\CampaignPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CampaignPage.xaml
 
-[c:/Users/Tered/CascadeProjects/QuestTodo/Views/SkillsPage.xaml]
+[C:/Users/Tered/CascadeProjects/QuestTodo/Views/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\LoginPage.xaml
+
+[C:/Users/Tered/CascadeProjects/QuestTodo/Views/ProfilePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.ProfilePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ProfilePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ProfilePage.xaml
+
+[C:/Users/Tered/CascadeProjects/QuestTodo/Views/ReportsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.ReportsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ReportsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ReportsPage.xaml
+
+[C:/Users/Tered/CascadeProjects/QuestTodo/Views/SkillsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.SkillsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\SkillsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\SkillsPage.xaml
 
-[c:/Users/Tered/CascadeProjects/QuestTodo/Views/TaskEditPage.xaml]
+[C:/Users/Tered/CascadeProjects/QuestTodo/Views/TaskEditPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.TaskEditPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\TaskEditPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\TaskEditPage.xaml
 
-[c:/Users/Tered/CascadeProjects/QuestTodo/Views/TasksPage.xaml]
+[C:/Users/Tered/CascadeProjects/QuestTodo/Views/TasksPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.TasksPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\TasksPage.xaml
