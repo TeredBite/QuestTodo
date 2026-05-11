@@ -12,10 +12,11 @@ public class JsonFileAppDataStore : IAppDataStore
 	};
 
 	private readonly string _path;
+	public string FilePath => _path;
 
 	public JsonFileAppDataStore()
 	{
-		_path = Path.Combine(FileSystem.AppDataDirectory, "appdata.json");
+		_path = Path.Combine(FileSystem.AppDataDirectory, "QuestTodo", "appdata.json");
 	}
 
 	public async Task<AppData> LoadAsync(CancellationToken ct = default)

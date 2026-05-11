@@ -61,6 +61,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.Campai
 build_metadata.AdditionalFiles.TargetPath = Views\CampaignPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CampaignPage.xaml
 
+[C:/Users/Tered/CascadeProjects/QuestTodo/Views/DataPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.DataPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\DataPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\DataPage.xaml
+
 [C:/Users/Tered/CascadeProjects/QuestTodo/Views/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = QuestTodoMaui.Views.LoginPage.xaml

@@ -8,5 +8,6 @@ public partial class AppShell : Shell
 
 		Routing.RegisterRoute("task/edit", typeof(Views.TaskEditPage));
 		Routing.RegisterRoute("reports", typeof(Views.ReportsPage));
+		Routing.RegisterRoute("data", typeof(Views.DataPage));
 	}
 }
