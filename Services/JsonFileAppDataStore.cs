@@ -62,6 +62,8 @@ public class JsonFileAppDataStore : IAppDataStore
 			Campaign = campaign,
 			Skills = skills,
 			Tasks = [],
+			Users = [],
+			CurrentUserId = Guid.Empty,
 		};
 	}
 
@@ -74,6 +76,11 @@ public class JsonFileAppDataStore : IAppDataStore
 
 		data.Skills ??= [];
 		data.Tasks ??= [];
+		data.Users ??= [];
+		if (data.CurrentUserId == default)
+		{
+			data.CurrentUserId = Guid.Empty;
+		}
 
 		var existing = new HashSet<string>(
 			data.Skills.Select(s => s.Name),

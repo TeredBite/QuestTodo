@@ -10,6 +10,8 @@ public class AppState
 	public Campaign Campaign { get; private set; } = new();
 	public ObservableCollection<Skill> Skills { get; } = [];
 	public ObservableCollection<TodoTask> Tasks { get; } = [];
+	public ObservableCollection<User> Users { get; } = [];
+	public Guid CurrentUserId { get; set; } = Guid.Empty;
 
 	public AppState(IAppDataStore store)
 	{
@@ -29,6 +31,8 @@ public class AppState
 			Campaign = Campaign,
 			Skills = Skills.ToList(),
 			Tasks = Tasks.ToList(),
+			Users = Users.ToList(),
+			CurrentUserId = CurrentUserId,
 		};
 
 		await _store.SaveAsync(data, ct);
@@ -46,6 +50,7 @@ public class AppState
 	private void Apply(AppData data)
 	{
 		Campaign = data.Campaign;
+		CurrentUserId = data.CurrentUserId;
 
 		Skills.Clear();
 		foreach (var s in data.Skills.OrderBy(s => s.Name))
@@ -54,6 +59,10 @@ public class AppState
 		Tasks.Clear();
 		foreach (var t in data.Tasks.OrderByDescending(t => t.CreatedAt))
 			Tasks.Add(t);
+
+		Users.Clear();
+		foreach (var u in data.Users)
+			Users.Add(u);
 	}
 }
 

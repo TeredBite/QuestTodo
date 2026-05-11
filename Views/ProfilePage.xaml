@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuestTodoMaui.Views.ProfilePage"
+             Title="Профиль">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+            <Frame BackgroundColor="#E8F4FD" Padding="20" CornerRadius="16" HorizontalOptions="Center">
+                <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                    <Label Text="🛡️" FontSize="48" HorizontalOptions="Center" />
+                    <Label Text="{Binding Username}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#007AFF" />
+                    <Label Text="Игрок" FontSize="14" HorizontalOptions="Center" TextColor="#666" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="#f5f5f5" Padding="16" CornerRadius="10">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="📊 Статистика" FontSize="18" FontAttributes="Bold" TextColor="#333" />
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="8" ColumnSpacing="8">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Всего дел:" FontSize="14" TextColor="#666" />
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding TotalTasks}" FontSize="14" FontAttributes="Bold" TextColor="#333" />
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="Выполнено:" FontSize="14" TextColor="#666" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding CompletedTasks}" FontSize="14" FontAttributes="Bold" TextColor="#2E7D32" />
+
+                        <Label Grid.Row="2" Grid.Column="0" Text="В процессе:" FontSize="14" TextColor="#666" />
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding PendingTasks}" FontSize="14" FontAttributes="Bold" TextColor="#007AFF" />
+
+                        <Label Grid.Row="3" Grid.Column="0" Text="Навыков:" FontSize="14" TextColor="#666" />
+                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding TotalSkills}" FontSize="14" FontAttributes="Bold" TextColor="#7B1FA2" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="📋 Отчёты" Command="{Binding OpenReportsCommand}"
+                    BackgroundColor="#007AFF" TextColor="White"
+                    CornerRadius="8" Padding="16,10" FontSize="16" />
+
+            <Button Text="🚪 Выйти" Command="{Binding LogoutCommand}"
+                    BackgroundColor="#FF3B30" TextColor="White"
+                    CornerRadius="8" Padding="16,10" FontSize="16" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

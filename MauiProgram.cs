@@ -27,6 +27,9 @@ public static class MauiProgram
 		builder.Services.AddSingleton<IAppDataStore, JsonFileAppDataStore>();
 		builder.Services.AddSingleton<AppState>();
 		builder.Services.AddSingleton<ISkillService, SkillService>();
+		builder.Services.AddSingleton<IAuthService, AuthService>();
+		builder.Services.AddSingleton<IDataExportService, DataExportService>();
+		builder.Services.AddSingleton<IErrorHandler, ErrorHandlerService>();
 		builder.Services.AddSingleton<IQuestGeneratorService>(sp =>
 		{
 			var logger = sp.GetRequiredService<ILogger<OpenRouterQuestGeneratorService>>();
@@ -35,16 +38,22 @@ public static class MauiProgram
 		});
 
 		// ViewModels
+		builder.Services.AddTransient<LoginViewModel>();
 		builder.Services.AddTransient<TasksViewModel>();
 		builder.Services.AddTransient<SkillsViewModel>();
 		builder.Services.AddTransient<CampaignViewModel>();
 		builder.Services.AddTransient<TaskEditViewModel>();
+		builder.Services.AddTransient<ProfileViewModel>();
+		builder.Services.AddTransient<ReportsViewModel>();
 
 		// Views
+		builder.Services.AddTransient<LoginPage>();
 		builder.Services.AddTransient<TasksPage>();
 		builder.Services.AddTransient<SkillsPage>();
 		builder.Services.AddTransient<CampaignPage>();
 		builder.Services.AddTransient<TaskEditPage>();
+		builder.Services.AddTransient<ProfilePage>();
+		builder.Services.AddTransient<ReportsPage>();
 
 		return builder.Build();
 	}

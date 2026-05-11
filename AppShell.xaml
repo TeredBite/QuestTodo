@@ -6,7 +6,12 @@
     xmlns:views="clr-namespace:QuestTodoMaui.Views"
     Title="QuestTodoMaui">
 
-    <TabBar>
+    <ShellContent
+        Title="Вход"
+        ContentTemplate="{DataTemplate views:LoginPage}"
+        Route="login" />
+
+    <TabBar Route="main">
         <ShellContent
             Title="Задачи"
             ContentTemplate="{DataTemplate views:TasksPage}"
@@ -21,6 +26,11 @@
             Title="Кампания"
             ContentTemplate="{DataTemplate views:CampaignPage}"
             Route="campaign" />
+
+        <ShellContent
+            Title="Профиль"
+            ContentTemplate="{DataTemplate views:ProfilePage}"
+            Route="profile" />
     </TabBar>
 
 </Shell>

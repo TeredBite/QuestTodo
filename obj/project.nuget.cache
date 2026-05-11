@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DzN7z/0yUhk=",
+  "dgSpecHash": "frbDcemHVm8=",
   "success": true,
   "projectFilePath": "C:\\Users\\Tered\\CascadeProjects\\QuestTodo\\QuestTodoMaui.csproj",
   "expectedPackageFiles": [
@@ -124,14 +124,9 @@
     "C:\\Users\\Tered\\.nuget\\packages\\microsoft.android.ref.35\\35.0.105\\microsoft.android.ref.35.35.0.105.nupkg.sha512",
     "C:\\Users\\Tered\\.nuget\\packages\\microsoft.ios.runtime.iossimulator-x64.net9.0_26.2\\26.2.9000\\microsoft.ios.runtime.iossimulator-x64.net9.0_26.2.26.2.9000.nupkg.sha512",
     "C:\\Users\\Tered\\.nuget\\packages\\microsoft.ios.ref.net9.0_26.2\\26.2.9000\\microsoft.ios.ref.net9.0_26.2.26.2.9000.nupkg.sha512",
-    "C:\\Users\\Tered\\.nuget\\packages\\microsoft.maccatalyst.runtime.maccatalyst-arm64.net9.0_26.2\\26.2.9000\\microsoft.maccatalyst.runtime.maccatalyst-arm64.net9.0_26.2.26.2.9000.nupkg.sha512",
     "C:\\Users\\Tered\\.nuget\\packages\\microsoft.maccatalyst.runtime.maccatalyst-x64.net9.0_26.2\\26.2.9000\\microsoft.maccatalyst.runtime.maccatalyst-x64.net9.0_26.2.26.2.9000.nupkg.sha512",
     "C:\\Users\\Tered\\.nuget\\packages\\microsoft.maccatalyst.ref.net9.0_26.2\\26.2.9000\\microsoft.maccatalyst.ref.net9.0_26.2.26.2.9000.nupkg.sha512",
-    "C:\\Users\\Tered\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\9.0.14\\microsoft.netcore.app.crossgen2.win-x64.9.0.14.nupkg.sha512",
-    "C:\\Users\\Tered\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512",
-    "C:\\Users\\Tered\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\9.0.14\\microsoft.aspnetcore.app.runtime.win-x64.9.0.14.nupkg.sha512",
-    "C:\\Users\\Tered\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\9.0.14\\microsoft.windowsdesktop.app.runtime.win-x64.9.0.14.nupkg.sha512",
-    "C:\\Users\\Tered\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\9.0.14\\microsoft.netcore.app.runtime.win-x64.9.0.14.nupkg.sha512"
+    "C:\\Users\\Tered\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512"
   ],
   "logs": []
 }

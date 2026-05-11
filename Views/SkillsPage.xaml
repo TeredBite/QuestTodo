@@ -4,7 +4,7 @@
              x:Class="QuestTodoMaui.Views.SkillsPage"
              Title="Мои навыки">
     <Grid Padding="20" RowDefinitions="Auto,*" RowSpacing="16">
-        <Frame Grid.Row="0" BackgroundColor="#9C27B0" Padding="16" CornerRadius="12">
+        <Frame Grid.Row="0" BackgroundColor="#7F49B4" Padding="16" CornerRadius="12">
             <HorizontalStackLayout Spacing="12">
                 <Label Text="🎯 Навыки" FontSize="20" FontAttributes="Bold" TextColor="White" VerticalOptions="Center" />
                 <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" 
@@ -24,7 +24,7 @@
             </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Padding="16" Margin="0,8" CornerRadius="12" BackgroundColor="White">
+                    <Frame Padding="16" Margin="0,8" CornerRadius="25" BackgroundColor="White">
                         <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="8">
                             <Label Grid.Row="0"
                                    Text="{Binding Name}"
@@ -40,7 +40,7 @@
                                            Progress="{Binding Progress}" 
                                            VerticalOptions="Center"
                                            BackgroundColor="#E1E1E1"
-                                           ProgressColor="#9C27B0" />
+                                           ProgressColor="#6f42e0" />
                             </Grid>
                             <Label Grid.Row="2"
                                    Text="{Binding CurrentXp, StringFormat='📊 Опыт: {0} XP'}"
