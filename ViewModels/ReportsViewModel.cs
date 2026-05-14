@@ -16,6 +16,7 @@ public partial class ReportsViewModel : BaseViewModel
 	[ObservableProperty] private string reportContent = "";
 	[ObservableProperty] private string selectedReportType = "Статистический отчёт";
 	[ObservableProperty] private TodoTask? selectedTask;
+	[ObservableProperty] private string exportedFilePath = "";
 
 	public List<string> ReportTypes { get; } = new()
 	{
@@ -210,32 +211,60 @@ public partial class ReportsViewModel : BaseViewModel
 	[RelayCommand]
 	private async Task ExportJsonAsync()
 	{
-		if (string.IsNullOrWhiteSpace(ReportContent))
-			return;
+		IsBusy = true;
+		Error = null;
+		ExportedFilePath = "";
 
 		try
 		{
-			var fileName = $"report_{DateTime.Now:yyyyMMdd_HHmmss}.json";
-			var data = SelectedReportType switch
+			string? filePath = SelectedReportType switch
 			{
-				"Статистический отчёт" => _exportService.ExportStatisticalReport(_state),
-				"Отчёт по всем событиям" => _exportService.ExportAllEventsReport(_state),
+				"Статистический отчёт" => await _exportService.ExportStatisticalReportAsync(_state),
+				"Отчёт по всем событиям" => await _exportService.ExportAllEventsReportAsync(_state),
 				"Отчёт по одному событию" => SelectedTask != null
-					? _exportService.ExportSingleEventReport(SelectedTask)
+					? await _exportService.ExportSingleEventReportAsync(SelectedTask)
 					: null,
 				_ => null,
 			};
 
-			if (data != null)
+			if (filePath != null)
 			{
-				var path = Path.Combine(FileSystem.AppDataDirectory, fileName);
-				await File.WriteAllTextAsync(path, data);
-				await Shell.Current.DisplayAlert("Готово", $"Отчёт сохранён:\n{path}", "OK");
+				ExportedFilePath = filePath;
+				await Shell.Current.DisplayAlert("Готово", $"Отчёт сохранён в Word формате:\n{filePath}", "OK");
+			}
+			else
+			{
+				Error = "Не удалось создать отчёт.";
 			}
 		}
 		catch (Exception ex)
 		{
 			Error = $"Ошибка экспорта: {ex.Message}";
+		}
+		finally
+		{
+			IsBusy = false;
+		}
+	}
+
+	[RelayCommand]
+	private async Task OpenReportAsync()
+	{
+		if (string.IsNullOrWhiteSpace(ExportedFilePath) || !File.Exists(ExportedFilePath))
+		{
+			Error = "Файл отчёта не найден. Сначала создайте отчёт.";
+			return;
+		}
+
+		try
+		{
+			await Launcher.OpenAsync(new Uri(ExportedFilePath));
+		}
+		catch
+		{
+			// Fallback: copy path to clipboard
+			await Clipboard.SetTextAsync(ExportedFilePath);
+			await Shell.Current.DisplayAlert("Скопировано", $"Путь скопирован в буфер обмена:\n{ExportedFilePath}", "OK");
 		}
 	}
 }

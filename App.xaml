@@ -8,6 +8,7 @@
         <ResourceDictionary>
             <converters:StringNotNullOrEmptyConverter x:Key="StringNotNullOrEmptyConverter" />
             <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <converters:TaskStatusConverter x:Key="TaskStatusConverter" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />

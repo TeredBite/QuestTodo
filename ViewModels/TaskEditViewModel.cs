@@ -312,15 +312,14 @@ public partial class TaskEditViewModel : BaseViewModel
 				var quest = JsonSerializer.Deserialize<QuestResult>(_model.QuestJson);
 				if (quest?.Skills != null && quest.Skills.Length > 0)
 				{
-					var xpPerSkill = xp / quest.Skills.Length;
 					foreach (var skillName in quest.Skills)
 					{
 						var skill = _state.Skills.FirstOrDefault(s =>
 							s.Name.Equals(skillName, StringComparison.OrdinalIgnoreCase));
 						if (skill != null)
 						{
-							_skillService.AddXp(skill, xpPerSkill);
-							_logger?.LogInformation("Added {Xp} XP to skill {SkillName}", xpPerSkill, skill.Name);
+							_skillService.AddXp(skill, xp);
+							_logger?.LogInformation("Added {Xp} XP to skill {SkillName}", xp, skill.Name);
 						}
 						else
 						{

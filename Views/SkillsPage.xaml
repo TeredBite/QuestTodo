@@ -24,7 +24,7 @@
             </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Padding="16" Margin="0,8" CornerRadius="25" BackgroundColor="White">
+                    <Frame Padding="16" Margin="0,8" CornerRadius="25" BorderColor="Black" BackgroundColor="White">
                         <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="8">
                             <Label Grid.Row="0"
                                    Text="{Binding Name}"

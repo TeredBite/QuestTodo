@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuestTodoMaui")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+b1058cdd890202b466180e331805c6cb8b4117ac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+3270f4cccb9ecbb1a75b135248be45585efcf073")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuestTodoMaui")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuestTodoMaui")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
