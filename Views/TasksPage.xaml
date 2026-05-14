@@ -39,7 +39,7 @@
                                    TextColor="#333" />
                             <Label Grid.Row="1"
                                    Grid.Column="0"
-                                   Text="{Binding Status}"
+                                   Text="{Binding Status, Converter={StaticResource TaskStatusConverter}}"
                                    FontSize="13"
                                    TextColor="#666" />
                             <Frame Grid.Row="0"

@@ -47,10 +47,23 @@
                 </VerticalStackLayout>
             </Frame>
 
-            <Button Text="Экспортировать в JSON" Command="{Binding ExportJsonCommand}"
+            <!-- Exported file path -->
+            <Frame BackgroundColor="#E8F5E9" Padding="16" CornerRadius="10"
+                   IsVisible="{Binding ExportedFilePath, Converter={StaticResource StringNotNullOrEmptyConverter}}">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="📄 Файл отчёта" FontSize="16" FontAttributes="Bold" TextColor="#2E7D32" />
+                    <Label Text="{Binding ExportedFilePath}"
+                           FontSize="12" TextColor="#333"
+                           LineBreakMode="CharacterWrap" />
+                    <Button Text="📂 Открыть файл" Command="{Binding OpenReportCommand}"
+                            BackgroundColor="#007AFF" TextColor="White"
+                            CornerRadius="8" Padding="16,10" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="📄 Экспортировать в Word" Command="{Binding ExportJsonCommand}"
                     BackgroundColor="#34C759" TextColor="White"
-                    CornerRadius="8" Padding="16,10" FontSize="16"
-                    IsVisible="{Binding ReportContent, Converter={StaticResource StringNotNullOrEmptyConverter}}" />
+                    CornerRadius="8" Padding="16,10" FontSize="16" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

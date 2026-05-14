@@ -4,7 +4,7 @@ namespace QuestTodoMaui.Services;
 
 public interface IDataExportService
 {
-	string ExportSingleEventReport(TodoTask task);
-	string ExportAllEventsReport(AppState state);
-	string ExportStatisticalReport(AppState state);
+	Task<string> ExportSingleEventReportAsync(TodoTask task);
+	Task<string> ExportAllEventsReportAsync(AppState state);
+	Task<string> ExportStatisticalReportAsync(AppState state);
 }
